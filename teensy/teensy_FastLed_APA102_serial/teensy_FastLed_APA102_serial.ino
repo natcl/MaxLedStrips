@@ -18,7 +18,7 @@ FASTLED_USING_NAMESPACE
 #define DATA_PIN    7
 #define CLK_PIN   13
 #define LED_TYPE    APA102
-#define COLOR_ORDER GRB
+#define COLOR_ORDER BGR
 #define NUM_LEDS    144
 CRGB leds[NUM_LEDS];
 
@@ -32,8 +32,9 @@ int serial_array_length = 0;
 
 void setup() {
   Serial.begin(115200);  
-  FastLED.addLeds<LED_TYPE,DATA_PIN,CLK_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
-  FastLED.setBrightness(BRIGHTNESS);
+  //FastLED.addLeds<LED_TYPE,DATA_PIN,CLK_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+  FastLED.addLeds<LED_TYPE,DATA_PIN,CLK_PIN,COLOR_ORDER>(leds, NUM_LEDS);
+  //FastLED.setBrightness(BRIGHTNESS);
   
   test();
 }
